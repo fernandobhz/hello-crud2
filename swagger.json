@@ -1,0 +1,40 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Learning swagger",
+    "description": "Learning swagger",
+    "license": {}
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "securityDefinitions": {
+    "bearerAuth": {
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "schemes": ["http", "https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/usuarios/": {
+      "get": {
+        "tags": ["usuarios"],
+        "description": "Return a list of all users",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Success result with the list the users"            
+          }
+        }
+      }
+    }
+  }
+}

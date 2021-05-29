@@ -1,4 +1,9 @@
+const swaggerUI = require("swagger-ui-express");
 const express = require("express");
+const fs = require("fs");
+const path = require("path");
+const swaggerJson = require("./swagger.json");
+
 const app = express();
 app.use(express.json());
 
@@ -11,6 +16,8 @@ const usuarioFernando = {
 };
 
 const usuarios = [usuarioFernando];
+
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerJson));
 
 app.get('/usuarios', (req, res) => {
     res.json(usuarios);
